@@ -260,3 +260,63 @@ body {
 .projects__heading {
   display: none;
 }
+
+/* ─── Mobile ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav {
+    padding: 16px 24px;
+  }
+
+  .nav__avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero {
+    padding: 80px 24px 32px;
+    text-align: left;
+  }
+
+  .hero__blob {
+    width: 360px;
+    height: 360px;
+    top: -80px;
+    left: -80px;
+  }
+
+  .hero__heading {
+    font-size: 36px;
+  }
+
+  .hero__meta {
+    justify-content: flex-start;
+  }
+
+  .project-row {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+    gap: 24px;
+  }
+
+  .project-row__image {
+    order: -1;
+  }
+
+  .project-row__link {
+    margin-top: 8px;
+  }
+
+  .site-footer {
+    padding: 24px;
+  }
+
+  .footer__inner {
+    justify-content: flex-start;
+  }
+
+  .footer__right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

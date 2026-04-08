@@ -346,6 +346,56 @@
       .cs-slider__next:hover {
         background: rgba(148, 163, 184, 0.1);
       }
+
+      /* ─── Mobile ───────────────────────────────────────── */
+      @media (max-width: 768px) {
+        .case-study-layout {
+          grid-template-columns: 1fr;
+          padding: 0 24px;
+        }
+
+        .case-study-nav {
+          display: none;
+        }
+
+        .case-study-main {
+          padding: 32px 0;
+        }
+
+        .cs-hero__title {
+          font-size: 32px;
+        }
+
+        .cs-hero__image,
+        .cs-overview__card,
+        .cs-contributions__card,
+        .cs-section__image,
+        .cs-slider {
+          width: 100%;
+          margin-right: 0;
+        }
+
+        .cs-contributions__card {
+          grid-template-columns: 1fr;
+        }
+
+        .cs-contributions__col + .cs-contributions__col {
+          border-left: none;
+          border-top: 1px solid rgba(148, 163, 184, 0.25);
+          padding: 24px 0 0 0;
+          margin-top: 8px;
+        }
+
+        .cs-overview__card {
+          grid-template-columns: 1fr;
+        }
+
+        .cs-slider__controls-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -354,7 +404,6 @@
       <nav class="nav" aria-label="Primary navigation">
         <a class="nav__back-arrow" href="index.html">←</a>
         <ul class="nav__links" role="list">
-          <li class="nav__item"><a class="nav__link" href="#work">Work</a></li>
           <li class="nav__item"><a class="nav__link" href="#about">About</a></li>
         </ul>
       </nav>
