@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study — Product Designer</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      :root {
+        --nav-width: 200px;
+        --content-max-width: 760px;
+      }
+
+      /* Layout */
+      .case-study-layout {
+        display: grid;
+        grid-template-columns: var(--nav-width) 1fr;
+        align-items: start;
+        min-height: 100vh;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 48px;
+      }
+
+      /* Left nav container */
+      .case-study-nav {
+        position: sticky;
+        top: 108px;
+        height: calc(100vh - 108px);
+        padding: 48px 24px;
+        box-sizing: border-box;
+        border-right: 1px solid rgba(148, 163, 184, 0.2);
+      }
+
+      /* Right main container */
+      .case-study-main {
+        padding: 48px 48px 48px 48px;
+      }
+
+      /* Navigation links */
+      .case-study-nav__back {
+        display: block;
+        font-size: 14px;
+        color: var(--color-primary);
+        text-decoration: none;
+        margin-bottom: 32px;
+      }
+
+      .case-study-nav__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .case-study-nav__item {
+        margin-bottom: 8px;
+      }
+
+      .case-study-nav__link {
+        font-size: 14px;
+        color: var(--color-primary);
+        text-decoration: none;
+        display: block;
+        padding: 4px 0;
+      }
+
+      .case-study-nav__link:hover {
+        background: #ffffff;
+        box-shadow: 0 1px 6px rgba(66, 76, 89, 0.1);
+      }
+
+      .case-study-nav__link--active {
+        font-weight: 700;
+        color: var(--color-text);
+      }
+
+      .nav__back-arrow {
+        font-size: 20px;
+        color: var(--color-text);
+        text-decoration: none;
+        line-height: 1;
+        display: block;
+      }
+
+      .cs-hero {
+        margin-bottom: 64px;
+      }
+
+      .cs-hero__title {
+        font-family: var(--font-serif);
+        font-size: 48px;
+        font-weight: 600;
+        color: var(--color-text);
+        line-height: 1.1;
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+
+      .cs-hero__subtitle {
+        font-size: 16px;
+        color: var(--color-primary);
+        line-height: 1.6;
+        margin: 0 0 16px 0;
+      }
+
+      .cs-hero__body {
+        font-size: 14px;
+        color: var(--color-primary);
+        line-height: 1.8;
+        margin: 0 0 40px 0;
+      }
+
+      .cs-hero__image {
+        width: calc(100% + 64px);
+        margin-right: -64px;
+        aspect-ratio: 16 / 9;
+        background: rgba(148, 163, 184, 0.1);
+        border-radius: 16px;
+      }
+
+      /* Overview card */
+      .cs-overview {
+        margin-bottom: 64px;
+      }
+
+      .cs-overview__card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        background: rgba(148, 163, 184, 0.08);
+        border-radius: 16px;
+        padding: 32px;
+        width: calc(100% + 64px);
+        margin-right: -64px;
+        box-sizing: border-box;
+      }
+
+      .cs-overview__item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .cs-overview__label {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .cs-overview__value-title {
+        font-family: var(--font-serif);
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--color-text);
+        margin: 0;
+      }
+
+      .cs-overview__value-body {
+        font-size: 14px;
+        color: var(--color-primary);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .cs-overview__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .cs-overview__tag {
+        background: rgba(148, 163, 184, 0.15);
+        color: var(--color-text);
+        border-radius: 999px;
+        padding: 4px 12px;
+        font-size: 14px;
+      }
+
+      /* Content sections */
+      .cs-section {
+        margin-bottom: 80px;
+      }
+
+      .cs-section__heading {
+        font-family: var(--font-serif);
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--color-text);
+        margin: 0 0 16px 0;
+        line-height: 1.2;
+      }
+
+      .cs-section__body {
+        font-size: 14px;
+        color: var(--color-text);
+        line-height: 1.8;
+        margin: 0 0 32px 0;
+      }
+
+      .cs-section__image {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: rgba(148, 163, 184, 0.1);
+        border-radius: 16px;
+        box-sizing: border-box;
+      }
+
+      /* Slider */
+      .cs-slider {
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 32px;
+      }
+
+      .cs-slider__track {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: rgba(148, 163, 184, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 16px;
+      }
+
+      .cs-slider__slide {
+        width: 100%;
+        height: 100%;
+        background: rgba(148, 163, 184, 0.08);
+        display: none;
+      }
+
+      .cs-slider__slide:first-child {
+        display: block;
+      }
+
+      .cs-slider__controls {
+        display: flex;
+        gap: 8px;
+      }
+
+      .cs-slider__prev,
+      .cs-slider__next {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--color-primary);
+        background: transparent;
+        color: var(--color-text);
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .cs-slider__prev:hover,
+      .cs-slider__next:hover {
+        background: rgba(148, 163, 184, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+
+    <header class="site-header site-header--detail">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav__back-arrow" href="index.html">←</a>
+        <ul class="nav__links" role="list">
+          <li class="nav__item"><a class="nav__link" href="#work">Work</a></li>
+          <li class="nav__item"><a class="nav__link" href="#about">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="case-study-layout">
+
+      <!-- Left column: sticky navigation -->
+      <nav class="case-study-nav" aria-label="Case study navigation">
+        <ul class="case-study-nav__list" role="list">
+          <li class="case-study-nav__item">
+            <a class="case-study-nav__link" href="#overview">Overview</a>
+          </li>
+          <li class="case-study-nav__item">
+            <a class="case-study-nav__link" href="#problem">Problem</a>
+          </li>
+          <li class="case-study-nav__item">
+            <a class="case-study-nav__link" href="#research">Research</a>
+          </li>
+          <li class="case-study-nav__item">
+            <a class="case-study-nav__link" href="#solution">Solution</a>
+          </li>
+          <li class="case-study-nav__item">
+            <a class="case-study-nav__link" href="#outcome">Outcome</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Right column: main content -->
+      <main class="case-study-main">
+
+        <!-- 1. Hero -->
+        <section class="cs-hero">
+          <h1 class="cs-hero__title">Case Study Title</h1>
+          <p class="cs-hero__subtitle">A short description of the project, the problem it addressed, and your role in solving it.</p>
+          <p class="cs-hero__body">Placeholder paragraph describing the project context, the problem it addresses, and what makes this solution meaningful.</p>
+          <div class="cs-hero__image" aria-hidden="true"></div>
+        </section>
+
+        <!-- 2. Overview -->
+        <section class="cs-overview" id="overview">
+          <div class="cs-overview__card">
+
+            <div class="cs-overview__item">
+              <span class="cs-overview__label">Role</span>
+              <p class="cs-overview__value-body">Placeholder role description.</p>
+            </div>
+
+            <div class="cs-overview__item">
+              <span class="cs-overview__label">Activities</span>
+              <ul class="cs-overview__tags" role="list">
+                <li class="cs-overview__tag">Activity One</li>
+                <li class="cs-overview__tag">Activity Two</li>
+                <li class="cs-overview__tag">Activity Three</li>
+                <li class="cs-overview__tag">Activity Four</li>
+              </ul>
+            </div>
+
+            <div class="cs-overview__item">
+              <span class="cs-overview__label">Team</span>
+              <p class="cs-overview__value-body">Team Member One, Team Member Two, Team Member Three</p>
+            </div>
+
+            <div class="cs-overview__item">
+              <span class="cs-overview__label">Duration</span>
+              <p class="cs-overview__value-body">Month Year – Month Year</p>
+              <p class="cs-overview__value-body">X months sprinting, X months developing</p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 3. Problem -->
+        <section class="cs-section" id="problem">
+          <h2 class="cs-section__heading">Problem</h2>
+          <p class="cs-section__body">Placeholder text describing the core problem this project set out to solve. What pain points existed, who was affected, and why it mattered.</p>
+          <div class="cs-slider" id="slider-1">
+            <div class="cs-slider__track">
+              <div class="cs-slider__slide" aria-label="Slide 1 placeholder"></div>
+              <div class="cs-slider__slide" aria-label="Slide 2 placeholder"></div>
+            </div>
+            <div class="cs-slider__controls">
+              <button class="cs-slider__prev" aria-label="Previous slide">←</button>
+              <button class="cs-slider__next" aria-label="Next slide">→</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Research -->
+        <section class="cs-section" id="research">
+          <h2 class="cs-section__heading">Research</h2>
+          <p class="cs-section__body">Placeholder text describing the research methods used — user interviews, competitive analysis, usability testing — and the key insights that shaped the design direction.</p>
+          <div class="cs-slider" id="slider-2">
+            <div class="cs-slider__track">
+              <div class="cs-slider__slide" aria-label="Slide 1 placeholder"></div>
+              <div class="cs-slider__slide" aria-label="Slide 2 placeholder"></div>
+            </div>
+            <div class="cs-slider__controls">
+              <button class="cs-slider__prev" aria-label="Previous slide">←</button>
+              <button class="cs-slider__next" aria-label="Next slide">→</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. Solution -->
+        <section class="cs-section" id="solution">
+          <h2 class="cs-section__heading">Solution</h2>
+          <p class="cs-section__body">Placeholder text describing the design solution — key flows, interactions, and decisions made. How does it address the problem uncovered in research?</p>
+          <div class="cs-section__image" aria-hidden="true"></div>
+        </section>
+
+        <!-- 6. Outcome -->
+        <section class="cs-section" id="outcome">
+          <h2 class="cs-section__heading">Outcome</h2>
+          <p class="cs-section__body">Placeholder text describing the results — impact metrics, user feedback, what shipped, and what you learned from the project.</p>
+          <div class="cs-section__image" aria-hidden="true"></div>
+        </section>
+
+      </main>
+
+    </div>
+
+    <script>
+      const navLinks = document.querySelectorAll('.case-study-nav__link');
+      const sections = document.querySelectorAll('.cs-section, .cs-overview, .cs-hero');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => link.classList.remove('case-study-nav__link--active'));
+            const active = document.querySelector(`.case-study-nav__link[href="#${entry.target.id}"]`);
+            if (active) active.classList.add('case-study-nav__link--active');
+          }
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+
+      sections.forEach(section => observer.observe(section));
+    </script>
+  </body>
+</html>

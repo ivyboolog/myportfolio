@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Product Designer</title>
+    <link rel="stylesheet" href="style.css?v=2">
+    <style>
+      @keyframes heroFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-16px); }
+      }
+
+      .hero__inner {
+        animation: heroFloat 6s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav__logo" href="/">
+          <img class="nav__avatar" src="assets/avatar.jpg" alt="Your Name" width="60" height="60">
+        </a>
+        <ul class="nav__links" role="list">
+          <li class="nav__item"><a class="nav__link" href="#work">Work</a></li>
+          <li class="nav__item"><a class="nav__link" href="#about">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+
+      <section class="hero" id="hero" aria-labelledby="hero-heading">
+        <div class="hero__blob" aria-hidden="true"></div>
+        <div class="hero__inner">
+          <h1 class="hero__heading" id="hero-heading">
+            <span class="hero__heading-dark">I'm Ayse — a senior product designer </span><span class="hero__heading-muted">built this site to improve myself in vibe coding</span>
+          </h1>
+          <div class="hero__meta">
+            <a class="hero__meta-item" href="https://uxfol.io/ayseusta" target="_blank" rel="noopener noreferrer">All Portfolio</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects">
+        <ul class="project-list" role="list">
+
+          <li class="project-row">
+            <div class="project-row__text">
+              <span class="project-row__label">Product Design</span>
+              <h3 class="project-row__title">Memorise</h3>
+              <p class="project-row__description">End-to-end product design for a tool that helps designers capture, organise and retrieve design decisions using AI.</p>
+              <ul class="project-row__tags" role="list">
+                <li class="project-row__tag">AI Product Design</li>
+                <li class="project-row__tag">Knowledge Management</li>
+                <li class="project-row__tag">UX/UI</li>
+                <li class="project-row__tag">Prototyping</li>
+                <li class="project-row__tag">Solo Designer</li>
+              </ul>
+              <a class="project-row__link" href="memorise.html">View case study</a>
+            </div>
+            <div class="project-row__image">
+              <img
+                class="project-row__img"
+                src="assets/Memorise/thumbnail.png"
+                alt="Screenshot of Memorise"
+              />
+            </div>
+          </li>
+
+          <li class="project-row">
+            <div class="project-row__text">
+              <span class="project-row__label">Product Design</span>
+              <h3 class="project-row__title">Designing an AI agent platform for customer service teams</h3>
+              <p class="project-row__description">End-to-end product design for a SaaS platform enabling businesses to build and deploy AI agents for seamless customer communication.</p>
+              <ul class="project-row__tags" role="list">
+                <li class="project-row__tag">AI SaaS Design</li>
+                <li class="project-row__tag">Design System</li>
+                <li class="project-row__tag">Wireframing</li>
+                <li class="project-row__tag">UX/UI</li>
+                <li class="project-row__tag">B2B Product</li>
+              </ul>
+              <a class="project-row__link" href="whitedesk.html">View case study</a>
+            </div>
+            <div class="project-row__image">
+              <img
+                class="project-row__img"
+                src="assets/Whitedesk/thumbnail.png"
+                alt="Screenshot of Project Two"
+              />
+            </div>
+          </li>
+
+          <li class="project-row">
+            <div class="project-row__text">
+              <span class="project-row__label">Design System — 2024</span>
+              <h3 class="project-row__title">Project Three</h3>
+              <p class="project-row__description">Placeholder description for project three — a brief summary of the problem, your role, and the outcome.</p>
+              <ul class="project-row__tags" role="list">
+                <li class="project-row__tag">Tokens</li>
+                <li class="project-row__tag">Component Library</li>
+                <li class="project-row__tag">Documentation</li>
+              </ul>
+              <a class="project-row__link" href="case-study.html">View case study</a>
+            </div>
+            <div class="project-row__image">
+              <img
+                class="project-row__img"
+                alt="Screenshot of Project Three"
+              />
+            </div>
+          </li>
+
+          <li class="project-row">
+            <div class="project-row__text">
+              <span class="project-row__label">Branding — 2023</span>
+              <h3 class="project-row__title">Project Four</h3>
+              <p class="project-row__description">Placeholder description for project four — a brief summary of the problem, your role, and the outcome.</p>
+              <ul class="project-row__tags" role="list">
+                <li class="project-row__tag">Brand Identity</li>
+                <li class="project-row__tag">Typography</li>
+                <li class="project-row__tag">Motion</li>
+                <li class="project-row__tag">Print</li>
+              </ul>
+              <a class="project-row__link" href="case-study.html">View case study</a>
+            </div>
+            <div class="project-row__image">
+              <img
+                class="project-row__img"
+                alt="Screenshot of Project Four"
+              />
+            </div>
+          </li>
+
+        </ul>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer__inner">
+        <div class="footer__right">
+          <p class="footer__copy">&copy; 2026 Your Name</p>
+          <ul class="footer__links" role="list">
+            <li class="footer__item"><a class="footer__link" href="mailto:you@example.com">Email</a></li>
+            <li class="footer__item"><a class="footer__link" href="https://linkedin.com/in/yourhandle" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+            <li class="footer__item"><a class="footer__link" href="https://read.cv/yourhandle" rel="noopener noreferrer" target="_blank">Read.cv</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

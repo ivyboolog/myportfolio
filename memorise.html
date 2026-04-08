@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study — Product Designer</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      :root {
+        --nav-width: 200px;
+        --content-max-width: 760px;
+      }
+
+      /* Layout */
+      .case-study-layout {
+        display: grid;
+        grid-template-columns: var(--nav-width) 1fr;
+        align-items: start;
+        min-height: 100vh;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 48px;
+      }
+
+      /* Left nav container */
+      .case-study-nav {
+        position: sticky;
+        top: 108px;
+        height: calc(100vh - 108px);
+        padding: 48px 24px;
+        box-sizing: border-box;
+        border-right: 1px solid rgba(148, 163, 184, 0.2);
+      }
+
+      /* Right main container */
+      .case-study-main {
+        padding: 48px 48px 48px 48px;
+      }
+
+      /* Navigation links */
+      .case-study-nav__back {
+        display: block;
+        font-size: 14px;
+        color: var(--color-primary);
+        text-decoration: none;
+        margin-bottom: 32px;
+      }
+
+      .case-study-nav__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .case-study-nav__item {
+        margin-bottom: 8px;
+      }
+
+      .case-study-nav__link {
+        font-size: 14px;
+        color: var(--color-text);
+        text-decoration: none;
+        display: block;
+        padding: 6px 10px;
+        border-radius: 24px;
+        transition: background 0.15s ease;
+      }
+
+      .case-study-nav__link:hover {
+        background: #ffffff;
+        box-shadow: 0 1px 6px rgba(66, 76, 89, 0.1);
+      }
+
+      .case-study-nav__link--active {
+        font-weight: 700;
+        color: var(--color-text);
+      }
+
+      /* Design Contributions */
+      .cs-contributions {
+        margin-bottom: 64px;
+      }
+
+      .cs-contributions__card {
+        width: calc(100% + 64px);
+        margin-right: -64px;
+        box-sizing: border-box;
+        background: rgba(148, 163, 184, 0.08);
+        border-radius: 16px;
+        padding: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+
+      .cs-contributions__col {
+        padding: 0 32px 0 0;
+      }
+
+      .cs-contributions__col + .cs-contributions__col {
+        padding: 0 0 0 32px;
+        border-left: 1px solid rgba(148, 163, 184, 0.25);
+      }
+
+      .cs-contributions__heading {
+        font-family: var(--font-sans);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(66, 76, 89, 0.5);
+        margin: 0 0 20px 0;
+      }
+
+      .cs-contributions__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .cs-contributions__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 14px;
+        color: var(--color-text);
+        line-height: 1.6;
+      }
+
+      .cs-contributions__item::before {
+        content: '•';
+        color: rgba(66, 76, 89, 0.35);
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      .nav__back-arrow {
+        font-size: 20px;
+        color: var(--color-text);
+        text-decoration: none;
+        line-height: 1;
+        display: block;
+      }
+
+      .cs-hero {
+        margin-bottom: 64px;
+      }
+
+      .cs-hero__title {
+        font-family: var(--font-serif);
+        font-size: 48px;
+        font-weight: 600;
+        color: var(--color-text);
+        line-height: 1.1;
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+
+      .cs-hero__subtitle {
+        font-size: 16px;
+        color: var(--color-primary);
+        line-height: 1.6;
+        margin: 0 0 16px 0;
+      }
+
+      .cs-hero__body {
+        font-size: 14px;
+        color: var(--color-primary);
+        line-height: 1.8;
+        margin: 0 0 40px 0;
+      }
+
+      .cs-hero__image {
+        width: calc(100% + 64px);
+        margin-right: -64px;
+        aspect-ratio: 1440 / 924;
+        background: rgba(148, 163, 184, 0.1);
+        border-radius: 16px;
+        box-shadow: 0 4px 24px 4px #e2e3eb;
+      }
+
+      /* Overview card */
+      .cs-overview {
+        margin-bottom: 64px;
+      }
+
+      .cs-overview__card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        background: rgba(148, 163, 184, 0.08);
+        border-radius: 16px;
+        padding: 32px;
+        width: calc(100% + 64px);
+        margin-right: -64px;
+        box-sizing: border-box;
+      }
+
+      .cs-overview__item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .cs-overview__label {
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(66, 76, 89, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .cs-overview__value-title {
+        font-family: var(--font-serif);
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--color-text);
+        margin: 0;
+      }
+
+      .cs-overview__value-body {
+        font-size: 14px;
+        color: var(--color-text);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .cs-overview__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .cs-overview__tag {
+        background: rgba(148, 163, 184, 0.15);
+        color: var(--color-text);
+        border-radius: 999px;
+        padding: 4px 12px;
+        font-size: 14px;
+      }
+
+      /* Content sections */
+      .cs-section {
+        margin-bottom: 80px;
+      }
+
+      .cs-section__heading {
+        font-family: var(--font-serif);
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--color-text);
+        margin: 0 0 16px 0;
+        line-height: 1.2;
+      }
+
+      .cs-section__body {
+        font-size: 14px;
+        color: var(--color-text);
+        line-height: 1.8;
+        margin: 0 0 32px 0;
+      }
+
+      .cs-section__image {
+        width: calc(100% + 64px);
+        margin-right: -64px;
+        aspect-ratio: 1440 / 924;
+        background: rgba(148, 163, 184, 0.1);
+        border-radius: 16px;
+        box-sizing: border-box;
+        box-shadow: 0 4px 24px 4px #e2e3eb;
+      }
+
+      /* Slider */
+      .cs-slider {
+        width: calc(100% + 64px);
+        margin-right: -64px;
+        box-sizing: border-box;
+        margin-bottom: 32px;
+      }
+
+      .cs-slider__track {
+        width: 100%;
+        aspect-ratio: 1440 / 924;
+        background: rgba(148, 163, 184, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 24px 4px #e2e3eb;
+      }
+
+      .cs-slider__slide {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .cs-slider__slide:first-child {
+        display: block;
+      }
+
+      .cs-slider__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .cs-slider__caption {
+        font-size: 13px;
+        color: rgba(66, 76, 89, 0.5);
+        line-height: 1.5;
+        margin: 0;
+        flex: 1;
+      }
+
+      .cs-slider__controls {
+        display: flex;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      .cs-slider__prev,
+      .cs-slider__next {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--color-primary);
+        background: transparent;
+        color: var(--color-text);
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .cs-slider__prev:hover,
+      .cs-slider__next:hover {
+        background: rgba(148, 163, 184, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+
+    <header class="site-header site-header--detail">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav__back-arrow" href="index.html">←</a>
+        <ul class="nav__links" role="list">
+          <li class="nav__item"><a class="nav__link" href="#work">Work</a></li>
+          <li class="nav__item"><a class="nav__link" href="#about">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="case-study-layout">
+
+      <!-- Left column: sticky navigation -->
+      <nav class="case-study-nav" aria-label="Case study navigation">
+        <ul class="case-study-nav__list" role="list">
+          <li class="case-study-nav__item">
+            <a class="case-study-nav__link" href="#overview">Overview</a>
+          </li>
+          <li class="case-study-nav__item">
+            <a class="case-study-nav__link" href="#problem">Problem</a>
+          </li>
+          <li class="case-study-nav__item">
+            <a class="case-study-nav__link" href="#designsolutions">Design Solutions</a>
+          </li>
+          <li class="case-study-nav__item">
+            <a class="case-study-nav__link" href="#preview">AI Enhancements</a>
+          </li>
+          <li class="case-study-nav__item">
+            <a class="case-study-nav__link" href="#outcome">Outcome</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Right column: main content -->
+      <main class="case-study-main">
+
+        <!-- 1. Hero -->
+        <section class="cs-hero">
+          <h1 class="cs-hero__title">Memorise</h1>
+          <p class="cs-hero__subtitle">A centralized LLM-powered knowledge orchestration platform for enterprise teams</p>
+          <p class="cs-hero__body">Memorise is an internal knowledge orchestration platform that changes this. It brings scattered enterprise knowledge into a centralized, role-aware system and makes it accessible through domain-specific AI assistants — each one trained on the right documents, scoped to the right audience, and transparent about where its answers come from.</p>
+          <img class="cs-hero__image" src="assets/memorise/hero.png" alt="Memorise hero">
+        </section>
+
+        <!-- 2. Overview -->
+        <section class="cs-overview" id="overview">
+          <div class="cs-overview__card">
+
+            <div class="cs-overview__item">
+              <span class="cs-overview__label">Role</span>
+              <p class="cs-overview__value-body">Led end-to-end product design of an AI-powered knowledge retrieval system, from system thinking to UX simplification.</p>
+            </div>
+
+            <div class="cs-overview__item">
+              <span class="cs-overview__label">Activities</span>
+              <ul class="cs-overview__tags" role="list">
+                <li class="cs-overview__tag">AI System Design</li>
+                <li class="cs-overview__tag">UX & UI Design</li>
+                <li class="cs-overview__tag">Information Architecture</li>
+                <li class="cs-overview__tag">Design System</li>
+                <li class="cs-overview__tag">Prototyping</li>
+              </ul>
+            </div>
+
+            <div class="cs-overview__item">
+              <span class="cs-overview__label">Team</span>
+              <p class="cs-overview__value-body">1 Product Designer (me), 1 AI Engineer Lead, 2 Backend Engineers, 1 Frontend Engineer, 1 Solution Architect</p>
+            </div>
+
+            <div class="cs-overview__item">
+              <span class="cs-overview__label">Duration</span>
+              <p class="cs-overview__value-body">6 months</p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 3. Problem -->
+        <section class="cs-section" id="problem">
+          <h2 class="cs-section__heading">Problem</h2>
+          <div class="cs-contributions">
+            <div class="cs-contributions__card">
+              <div class="cs-contributions__col">
+                <p class="cs-contributions__heading">Problems</p>
+                <ul class="cs-contributions__list">
+                  <li class="cs-contributions__item">Knowledge had no ingestion standard</li>
+                  <li class="cs-contributions__item">No visibility into knowledge-assistant connections</li>
+                  <li class="cs-contributions__item">Data complexity was invisible or overwhelming</li>
+                  <li class="cs-contributions__item">Cross-domain overlaps were unmanageable at scale</li>
+                  <li class="cs-contributions__item">No feedback loop between output and source quality</li>
+                  <li class="cs-contributions__item">System complexity outgrew admin confidence</li>
+                </ul>
+              </div>
+              <div class="cs-contributions__col">
+                <p class="cs-contributions__heading">Design Contributions</p>
+                <ul class="cs-contributions__list">
+                  <li class="cs-contributions__item">Aligned ingestion model with admin experience</li>
+                  <li class="cs-contributions__item">Unified Assistant and Knowledge Base navigation</li>
+                  <li class="cs-contributions__item">Designed macro and micro data visibility in layers</li>
+                  <li class="cs-contributions__item">Made contextual mapping admin-filterable from any angle</li>
+                  <li class="cs-contributions__item">Designed governance feedback loop through Preview area</li>
+                  <li class="cs-contributions__item">Made complexity invisible while keeping transparency intact</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Design Solutions -->
+        <section class="cs-section" id="research">
+          <h2 class="cs-section__heading">Design Solutions</h2>
+          <p class="cs-section__body">Centralization had to coexist with domain specificity. Full visibility had to coexist with usability. Strict governance had to coexist with admin flexibility. Three tensions that shaped every design decision.</p>
+          <div class="cs-slider" id="slider-2">
+            <div class="cs-slider__track">
+              <img class="cs-slider__slide" src="assets/memorise/designsolutions-1.png" alt="Design Solutions slide 1" data-caption="Aligned ingestion model with admin experience">
+              <img class="cs-slider__slide" src="assets/memorise/designsolutions-2.png" alt="Design Solutions slide 2" data-caption="Unified Assistant and Knowledge Base navigation">
+              <img class="cs-slider__slide" src="assets/memorise/designsolutions-3.png" alt="Design Solutions slide 3" data-caption="Designed macro and micro data visibility in layers">
+              <img class="cs-slider__slide" src="assets/memorise/designsolutions-4.png" alt="Design Solutions slide 4" data-caption="Made contextual mapping admin-filterable from any angle">
+              <img class="cs-slider__slide" src="assets/memorise/designsolutions-5.png" alt="Design Solutions slide 5" data-caption="Designed governance feedback loop through Preview area">
+              <img class="cs-slider__slide" src="assets/memorise/designsolutions-6.png" alt="Design Solutions slide 6" data-caption="Made complexity invisible while keeping transparency intact">
+              <img class="cs-slider__slide" src="assets/memorise/designsolutions-7.png" alt="Design Solutions slide 7" data-caption="Made complexity invisible while keeping transparency intact">
+              <img class="cs-slider__slide" src="assets/memorise/research-1.png" alt="Research slide 1" data-caption="Centralization had to coexist with domain specificity — each assistant scoped, yet the system unified.">
+              <img class="cs-slider__slide" src="assets/memorise/research-2.png" alt="Research slide 2" data-caption="Strict governance had to coexist with admin flexibility — control without friction.">
+            </div>
+            <div class="cs-slider__footer">
+              <p class="cs-slider__caption"></p>
+              <div class="cs-slider__controls">
+                <button class="cs-slider__prev" aria-label="Previous slide">←</button>
+                <button class="cs-slider__next" aria-label="Next slide">→</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. AI Enhancements -->
+        <section class="cs-section" id="preview">
+          <h2 class="cs-section__heading">AI Enhancements</h2>
+          <p class="cs-section__body">Admins don't just build the assistant — they become the user. The Preview screen closes the loop between configuration and output quality, with direct traceability back to the source.</p>
+          <div class="cs-slider" id="slider-3">
+            <div class="cs-slider__track">
+              <img class="cs-slider__slide" src="assets/memorise/aienhancements-1.png" alt="AI Enhancements slide 1" data-caption="Preview closes the loop — admins experience the assistant as the end user would.">
+              <img class="cs-slider__slide" src="assets/memorise/aienhancements-2.png" alt="AI Enhancements slide 2" data-caption="Source traceability connects every AI output back to its originating document.">
+              <img class="cs-slider__slide" src="assets/memorise/aienhancements-3.png" alt="AI Enhancements slide 3" data-caption="">
+              <img class="cs-slider__slide" src="assets/memorise/aienhancements-4.png" alt="AI Enhancements slide 4" data-caption="">
+              <img class="cs-slider__slide" src="assets/memorise/aienhancements-5.png" alt="AI Enhancements slide 5" data-caption="">
+            </div>
+            <div class="cs-slider__footer">
+              <p class="cs-slider__caption"></p>
+              <div class="cs-slider__controls">
+                <button class="cs-slider__prev" aria-label="Previous slide">←</button>
+                <button class="cs-slider__next" aria-label="Next slide">→</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8. Outcome -->
+        <section class="cs-section" id="outcome">
+          <h2 class="cs-section__heading">Outcome</h2>
+          <p class="cs-section__body">As the platform scaled, the experience didn't break. More assistants, more documents, more roles — the system held. Enterprise knowledge became something employees could finally trust.</p>
+        </section>
+
+      </main>
+
+    </div>
+
+    <script>
+      function initSlider(sliderId) {
+        const slider = document.getElementById(sliderId);
+        const slides = slider.querySelector('.cs-slider__track').querySelectorAll('.cs-slider__slide');
+        const prev = slider.querySelector('.cs-slider__prev');
+        const next = slider.querySelector('.cs-slider__next');
+        const caption = slider.querySelector('.cs-slider__caption');
+        let current = 0;
+
+        function showSlide(index) {
+          slides.forEach(s => s.style.display = 'none');
+          slides[index].style.display = 'block';
+          if (caption) caption.textContent = slides[index].dataset.caption || '';
+        }
+
+        prev.addEventListener('click', () => {
+          current = (current - 1 + slides.length) % slides.length;
+          showSlide(current);
+        });
+
+        next.addEventListener('click', () => {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        });
+
+        showSlide(current);
+      }
+
+      initSlider('slider-2');
+      initSlider('slider-3');
+
+      const navLinks = document.querySelectorAll('.case-study-nav__link');
+      const sections = document.querySelectorAll('.cs-section, .cs-overview, .cs-hero');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => link.classList.remove('case-study-nav__link--active'));
+            const active = document.querySelector(`.case-study-nav__link[href="#${entry.target.id}"]`);
+            if (active) active.classList.add('case-study-nav__link--active');
+          }
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+
+      sections.forEach(section => observer.observe(section));
+    </script>
+  </body>
+</html>
