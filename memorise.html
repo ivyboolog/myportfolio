@@ -439,7 +439,19 @@
           <h1 class="cs-hero__title">Memorise</h1>
           <p class="cs-hero__subtitle">A centralized LLM-powered knowledge orchestration platform for enterprise teams</p>
           <p class="cs-hero__body">Memorise is an internal knowledge orchestration platform that changes this. It brings scattered enterprise knowledge into a centralized, role-aware system and makes it accessible through domain-specific AI assistants — each one trained on the right documents, scoped to the right audience, and transparent about where its answers come from.</p>
-          <img class="cs-hero__image" src="assets/memorise/hero.png?v=2" alt="Memorise hero">
+          <div class="cs-slider" id="slider-1">
+            <div class="cs-slider__track">
+              <img class="cs-slider__slide" src="assets/memorise/hero-1.png" alt="Hero slide 1" data-caption="">
+              <img class="cs-slider__slide" src="assets/memorise/hero-2.png" alt="Hero slide 2" data-caption="">
+            </div>
+            <div class="cs-slider__footer">
+              <p class="cs-slider__caption"></p>
+              <div class="cs-slider__controls">
+                <button class="cs-slider__prev" aria-label="Previous slide">←</button>
+                <button class="cs-slider__next" aria-label="Next slide">→</button>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- 2. Overview -->
@@ -590,6 +602,7 @@
         showSlide(current);
       }
 
+      initSlider('slider-1');
       initSlider('slider-2');
       initSlider('slider-3');
 
