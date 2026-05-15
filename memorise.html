@@ -173,6 +173,43 @@
         margin: 0 0 40px 0;
       }
 
+      .cs-prototype {
+        margin-bottom: 64px;
+      }
+
+      .cs-prototype__title {
+        font-family: var(--font-sans);
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--color-text);
+        margin: 0 0 12px 0;
+      }
+
+      .cs-prototype__description {
+        font-size: 14px;
+        color: var(--color-text);
+        margin: 0 0 20px 0;
+        line-height: 1.7;
+      }
+
+      .cs-prototype__label {
+        font-weight: 600;
+        color: var(--color-text);
+      }
+
+      .cs-prototype__description span {
+        color: rgba(66, 76, 89, 0.5);
+      }
+
+      .cs-prototype__link {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text);
+        text-decoration: none;
+        border-bottom: 1px solid var(--color-text);
+        padding-bottom: 2px;
+      }
+
       .cs-hero__image {
         width: calc(100% + 64px);
         margin-right: -64px;
@@ -441,8 +478,8 @@
           <p class="cs-hero__body">Memorise is an internal knowledge orchestration platform that changes this. It brings scattered enterprise knowledge into a centralized, role-aware system and makes it accessible through domain-specific AI assistants — each one trained on the right documents, scoped to the right audience, and transparent about where its answers come from.</p>
           <div class="cs-slider" id="slider-1">
             <div class="cs-slider__track">
-              <img class="cs-slider__slide" src="assets/memorise/hero-1.png" alt="Hero slide 1" data-caption="">
               <img class="cs-slider__slide" src="assets/memorise/hero-2.png" alt="Hero slide 2" data-caption="">
+              <img class="cs-slider__slide" src="assets/memorise/hero-1.png" alt="Hero slide 1" data-caption="">
             </div>
             <div class="cs-slider__footer">
               <p class="cs-slider__caption"></p>
@@ -486,6 +523,16 @@
 
           </div>
         </section>
+
+        <!-- AI Prototype -->
+        <div class="cs-prototype">
+          <h2 class="cs-section__heading">AI Prototype</h2>
+          <p class="cs-prototype__description">
+            <span class="cs-prototype__label">Create New Assistant Flow:</span>
+            <span> A fast interactive prototype showing how assistants are created, configured, and previewed — covering scope definition, communication style, and knowledge ingestion across a 3-step flow.</span>
+          </p>
+          <a class="cs-prototype__link" href="https://ivyboolog.github.io/memorise/" target="_blank">Prototype Link</a>
+        </div>
 
         <!-- 3. Problem -->
         <section class="cs-section" id="problem">
